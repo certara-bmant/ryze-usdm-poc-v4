@@ -1,0 +1,245 @@
+html * {
+    font-family: "interstate", "PT Sans", "interstate", Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #33A1CB;
+}
+
+div, h2, h4 {
+    color: white;
+}
+
+.activity-column {
+    text-align: right;
+}
+
+.top-margin {
+    margin-top: 20px;
+}
+
+.header {
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.header img {
+    float: left;
+    height: 69px;
+}
+
+.header h2 {
+    float: left;
+    margin-left: 20px;
+}
+
+/* ── Mapping table ─────────────────────────────────── */
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    color: white;
+    text-align: left;
+    padding: 4px 12px 4px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+td {
+    padding: 4px 12px 4px 4px;
+    vertical-align: middle;
+}
+
+.match-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+}
+
+.match-bc     { background: #2e7d32; }
+.match-exact  { background: #1565c0; }
+.match-fuzzy  { background: #e65100; }
+.match-none   { background: #555;    }
+
+.auto-map-summary {
+    color: white;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* ── SoA Preview ───────────────────────────────────── */
+#soaPreviewSection {
+    margin: 16px 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.soa-preview-header {
+    background: #1a3a5c;
+    color: white;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    user-select: none;
+}
+
+.soa-preview-header:hover { background: #1f4a72; }
+
+#soaPreviewBody { background: #f0f2f5; }
+
+.soa-filter-bar {
+    padding: 8px 16px;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.soa-filter-bar label { color: #444; font-weight: 600; }
+
+.soa-filter-bar input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    width: 220px;
+}
+
+.soa-filter-bar input:focus { outline: none; border-color: #1565c0; }
+
+.soa-scroll-wrap {
+    overflow-x: auto;
+    padding: 12px 16px;
+}
+
+table.soa-tbl {
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 11.5px;
+    background: white;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+table.soa-tbl th,
+table.soa-tbl td {
+    border: 1px solid #ccc;
+}
+
+tr.soa-epoch-row th {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 6px;
+    letter-spacing: 0.3px;
+}
+
+tr.soa-visit-row th {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 3px;
+    min-width: 52px;
+    max-width: 90px;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+tr.soa-enc-row th {
+    text-align: center;
+    font-size: 9px;
+    font-style: italic;
+    padding: 3px 2px;
+    max-width: 90px;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.soa-act-col {
+    text-align: left;
+    padding: 4px 10px;
+    min-width: 240px;
+    max-width: 340px;
+    white-space: normal;
+    color: #1a1a2e;
+    background: #fafafa;
+    border-right: 2px solid #bbb !important;
+    font-weight: 500;
+}
+
+tr.soa-row td.soa-act-name {
+    padding: 4px 8px 4px 14px;
+    color: #222;
+    font-size: 11.5px;
+    background: #fafafa;
+    border-right: 2px solid #bbb;
+    white-space: normal;
+    vertical-align: middle;
+    min-width: 240px;
+    max-width: 340px;
+}
+
+tr.soa-row:hover td { filter: brightness(0.94); }
+
+td.soa-dot-cell {
+    text-align: center;
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.soa-dot {
+    font-size: 14px;
+    color: #1565c0;
+    display: block;
+    line-height: 1;
+}
+
+.bc-badge {
+    font-size: 8px;
+    background: #e8eaf6;
+    color: #3949ab;
+    padding: 1px 4px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.soa-legend-bar {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 7px 16px;
+    font-size: 11px;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.epoch-swatch {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.match-bcname { background: #00695c; }   /* teal - BC name/synonym match */
+
+.match-bcquestion { background: #1a237e; }  /* deep indigo - BC question SDTM match */
