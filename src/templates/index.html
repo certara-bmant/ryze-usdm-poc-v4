@@ -1,0 +1,56 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="/static/js/appModule.js"></script>
+    <script src="/static/js/controllerModule.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "/static/css/styling.css">
+</head>
+
+<body ng-app="MainModule">
+<div ng-controller="MainController">
+    <div class="header">
+        <img src="static/img/ryze_horizontal_logo_white.png">
+        <h2>USDM Study Definition Import PoC</h2>
+    </div>
+
+    <h4>1 - Upload a JSON file containing your USDM Study Definition</h4>
+
+    <div id="studyUpload">
+        <input type="file" id="study" name="study" accept=".json"/>
+        <button ng-click="uploadStudy()">Upload Study</button>
+    </div>
+
+    <h4 ng-show="studyUploadMessage.length > 0" id="studyUploadInfo">{{studyUploadMessage}}</h4>
+
+    <!-- SoA Preview (shown after upload, hidden initially) -->
+    <div id="soaPreviewSection" style="display:none">
+      <div class="soa-preview-header" onclick="toggleSoA()">
+        <span id="soaToggleIcon">▼</span>
+        <strong id="soaPreviewTitle">Schedule of Activities Preview</strong>
+        <span id="soaPreviewMeta" style="margin-left:12px;font-size:11px;opacity:0.8"></span>
+      </div>
+      <div id="soaPreviewBody">
+        <div class="soa-filter-bar">
+          <label>Filter:</label>
+          <input type="text" id="soaFilter" placeholder="e.g. vital signs, ECG…" oninput="filterSoARows(this.value)">
+        </div>
+        <div class="soa-scroll-wrap">
+          <div id="soaTableContainer"></div>
+        </div>
+        <div id="soaLegend" class="soa-legend-bar"></div>
+      </div>
+    </div>
+
+    <div ng-show="standardSelections.length > 0" id="standardSelection">
+        <select ng-model="selectedStandard" ng-options="x for x in standardSelections"></select>
+        <button ng-click="confirmStandard()">Confirm Standard</button>
+    </div>
+
+    <h4 ng-show="standardSelectionsMessage.length > 0" id="standardSelectionsInfo">{{standardSelectionsMessage}}</h4>
+
+    <div id="activityToFormMappings"></div>
+
+    <h4 ng-show="activityToFormMappingsMessage.length > 0" id="activityToFormMappingsInfo">{{activityToFormMappingsMessage}}</h4>
+</div>
+</body>
