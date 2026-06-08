@@ -130,7 +130,7 @@ A mapping table shows every USDM activity alongside a ryze form dropdown. Five a
 
 | Badge | Method | How it works |
 |-------|--------|-------------|
-| BC Question | SDTM code (question-level) | Extracts the SDTM specialisation code from the BC reference (e.g. `SYSBP`) and matches it against question submission variables in ryze — highest precision |
+| BC Question | BC label / synonym (question-level) | Matches BC name, label or synonyms against ryze question labels (e.g. "Systolic Blood Pressure" → Vital Signs form question) — resolves to the correct parent form |
 | BC | BC alias (ryze code system) | v1 only: BC has a ryze-specific alias matching a form alias exactly |
 | BC Name | BC label / synonym | BC label or synonym has ≥ 70% word overlap with a form label |
 | Exact | Exact label | Activity name matches form label exactly |
@@ -151,7 +151,7 @@ For the form mapping and study creation steps to work:
 
 - The standard container must have `program = Activities` set.
 - Forms must be inside a **DATA_ACQUISITION asset group** within the standard. Forms added directly to the container root are not accessible via the API.
-- For BC Question SDTM matching, questions must have a **submission variable** set (e.g. `SYSBP`).
+- For BC Question matching, question **labels** in ryze should reflect the clinical concept name (e.g. "Systolic Blood Pressure") so they can be matched against BC names and synonyms from the USDM.
 
 ---
 
@@ -199,4 +199,4 @@ USDM-Import-UI-PoC/
 - **Single study design** — only the first `studyDesigns` entry is used.
 - **Main timeline only** — sub-timelines (e.g. intra-day PK sampling) are not shown in the SoA preview or imported.
 - **Standard scan latency** — environments with many standards cause a slow first upload (one API call per standard to check `program`). Use the pre-configured line in `ryze-Keys.txt` to eliminate this.
-- **BC Question matching** — requires forms in a DATA_ACQUISITION asset group and questions with submission variables set; falls back to name/fuzzy matching otherwise.
+- **BC Question matching** — requires forms in a DATA_ACQUISITION asset group and question labels that reflect clinical concept names; falls back to BC Name / Fuzzy matching otherwise.
